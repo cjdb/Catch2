@@ -1142,8 +1142,8 @@ struct AutoReg : NonCopyable {
             template<typename... Types>                               \
             struct TestName {                                         \
                 void reg_tests() {                                          \
-                    int index = 0;                                    \
-                    using expander = int[];                           \
+                    std::size_t index = 0;                                  \
+                    using expander = std::size_t[];                         \
                     constexpr char const* tmpl_types[] = {CATCH_REC_LIST(INTERNAL_CATCH_STRINGIZE_WITHOUT_PARENS, INTERNAL_CATCH_REMOVE_PARENS(TmplTypes))};\
                     constexpr char const* types_list[] = {CATCH_REC_LIST(INTERNAL_CATCH_STRINGIZE_WITHOUT_PARENS, INTERNAL_CATCH_REMOVE_PARENS(TypesList))};\
                     constexpr auto num_types = sizeof(types_list) / sizeof(types_list[0]);\
@@ -1269,8 +1269,8 @@ struct AutoReg : NonCopyable {
             template<typename...Types>\
             struct TestNameClass{\
                 void reg_tests(){\
-                    int index = 0;\
-                    using expander = int[];\
+                    std::size_t index = 0;\
+                    using expander = std::size_t[];\
                     constexpr char const* tmpl_types[] = {CATCH_REC_LIST(INTERNAL_CATCH_STRINGIZE_WITHOUT_PARENS, INTERNAL_CATCH_REMOVE_PARENS(TmplTypes))};\
                     constexpr char const* types_list[] = {CATCH_REC_LIST(INTERNAL_CATCH_STRINGIZE_WITHOUT_PARENS, INTERNAL_CATCH_REMOVE_PARENS(TypesList))};\
                     constexpr auto num_types = sizeof(types_list) / sizeof(types_list[0]);\
@@ -17963,4 +17963,3 @@ using Catch::Detail::Approx;
 // end catch_reenable_warnings.h
 // end catch.hpp
 #endif // TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED
-
